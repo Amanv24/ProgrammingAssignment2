@@ -11,8 +11,8 @@ inv <- NULL # sets the value to null on first call
     inv <<- NULL
   }
           get <- function() x
-          setInverse <- function(inverse) inv <<- inverse       #converts into the inverse
-          getInverse <- function() inv
+          setInverse <- function(inverse) inv <<- inverse   #cal inverse    
+          getInverse <- function() inv  #return inverse
           list(set = set,
           get = get,
           setInverse = setInverse,
@@ -25,7 +25,7 @@ inv <- NULL # sets the value to null on first call
 # if again the function is called, the cached variable is used to prodcue the output
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x
+#checks whether the inverse hasbeen already saved or not
         inv <- x$getInverse()
         if (!is.null(inv)) {
                 message("Fetching already cached data")
